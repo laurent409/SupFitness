@@ -10,6 +10,9 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <f:metadata>
+        <f:viewAction action="#{UserController.onLoad()}" />
+    </f:metadata>
     <h:head>
         <ui:include src="/WEB-INF/head.xhtml" />
     </h:head>
@@ -18,54 +21,55 @@ and open the template in the editor.
         <div class="container">
             <div class="col-md-4 col-md-offset-4">
                 <h:form class="form-signin">
-                    <h2 class="form-signin-heading">Sign-out</h2>
-                    <h:inputText id="username" 
-                    value="#{UserController.user.userName}" 
+                    <h2 class="form-signin-heading">Edit</h2>
+                    <p>Here #{UserController.userSession.userName}, you can update your profile.</p>
+
+                    <h:inputText id="userName" 
+                    value="#{UserController.userSession.userName}" 
                     class="form-control"
-                    p:placeholder="username">
+                    p:placeholder="#{UserController.userSession.userName}"
+                    disabled="true"
+                    required="true">
                     <f:validateRequired />
                     </h:inputText>
 
                     <h:inputText id="firstName" 
-                    value="#{UserController.user.firstName}" 
+                    value="#{UserController.userSession.firstName}" 
                     class="form-control"
-                    p:placeholder="first name"
+                    p:placeholder="#{UserController.userSession.firstName}"
                     required="true">
                     <f:validateRequired />
                     </h:inputText>
 
                     <h:inputText id="lastName" 
-                    value="#{UserController.user.lastName}" 
+                    value="#{UserController.userSession.lastName}" 
                     class="form-control"
-                    p:placeholder="last name">
+                    p:placeholder="#{UserController.userSession.lastName}">
                     <f:validateRequired />
                     </h:inputText>
                     
                     <h:inputText id="mailAddress" 
-                    value="#{UserController.user.mailAddress}" 
+                    value="#{UserController.userSession.mailAddress}" 
                     class="form-control"
-                    p:placeholder="mail address">
+                    p:placeholder="#{UserController.userSession.mailAddress}">
                     <f:validateRequired />
                     </h:inputText>
 
                     <h:inputText id="postalCode" 
-                    value="#{UserController.user.postalCode}" 
+                    value="#{UserController.userSession.postalCode}" 
                     class="form-control"
-                    p:placeholder="postal code"
-                    converterMessage="Please enter digits only." 
-                    converter="javax.faces.Double"
+                    p:placeholder="#{UserController.userSession.postalCode}"
+                    converterMessage="Please enter integers only." 
+                    converter="javax.faces.Integer"
+                    onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;"
                     required="true">
-                    <f:convertNumber 
-                    maxIntegerDigits="5"
-                    groupingUsed="true"
-                    type="currency"/>
                     <f:validateRequired />
                     </h:inputText>
                                       
                     <h:inputSecret id="password" 
-                    value="#{UserController.user.password}"
+                    value="#{UserController.userSession.password}"
                     class="form-control"
-                    p:placeholder="password">
+                    p:placeholder="your password">
                     <f:validateRequired />
                     </h:inputSecret>
                         
@@ -73,7 +77,7 @@ and open the template in the editor.
                     <br></br>
 
                     <h:commandButton value="Sign-out" 
-                    action="#{UserController.Register()}"
+                    action="#{UserController.updateProfile()}"
                     class="btn btn-lg btn-primary btn-block"/>
                 </h:form> 
             </div>

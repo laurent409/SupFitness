@@ -10,6 +10,9 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <f:metadata>
+        <f:viewAction action="#{UserController.onLoadSign()}" />
+    </f:metadata>    
     <h:head>
         <ui:include src="/WEB-INF/head.xhtml" />
     </h:head>
@@ -34,7 +37,7 @@ and open the template in the editor.
                     <br></br>
 
                     <h:commandButton value="Sign-in" 
-                    action="#{UserController.Login()}"
+                    action="#{UserController.signIn()}"
                     class="btn btn-lg btn-primary btn-block"/>
                 </h:form> 
             </div>

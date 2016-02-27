@@ -24,10 +24,20 @@ public class JpaUserDao implements UserDao{
     private EntityManager em;
     
     @Override
-    public User GetUser(String username, String password) {     
+    public void addUser(User userEntity) {
+        em.persist(userEntity);
+    }
+    
+    @Override
+    public void updateUser(User user) {
+        em.merge(user);
+    }
+   
+    @Override
+    public User GetUser(String userName, String password) {     
         
-        Query query = em.createQuery("SELECT u FROM User u WHERE u.username= :username AND u.password= :password");
-        query.setParameter("username", username);        
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.userName= :username AND u.password= :password");
+        query.setParameter("username", userName);        
         query.setParameter("password", password);
         
         try {
