@@ -37,26 +37,26 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">speed</f:facet>
-                            #{trackEntity.speed}
+                            #{trackEntity.speed} km.h
                         </h:column>
                         <h:column>
-                            <f:facet name="header">time</f:facet>
-                            #{trackEntity.timestamp} seconds
+                            <f:facet name="header">the</f:facet>
+                            #{trackEntity.timestamp}
                         </h:column>
                     </h:dataTable>
                 </div>
                 <div class="thumbnail">
                     <h:form id="form">
-                        <m:map width="500px" latitude="45.7523799" longitude="4.8267278" height="500px" zoom="16" autoReshape="true">
+                        <m:map width="500px" latitude="45.7523799" longitude="4.8267278" height="500px" zoom="13" autoReshape="true">
                             <ui:repeat value="#{track.trackEntities}" var="trackEntity">
                                 <m:marker latitude="#{trackEntity.latitude}" longitude="#{trackEntity.longitude}">
-                                    <m:htmlInformationWindow htmlText="speed: #{trackEntity.speed}km.h - in #{trackEntity.timestamp} seconds" />
+                                    <m:htmlInformationWindow htmlText="speed: #{trackEntity.speed}km.h - the #{trackEntity.timestamp}" />
                                 </m:marker>
-                            </ui:repeat>                           
+                            </ui:repeat>
                         </m:map>
                     </h:form>
                     <br></br>
-                    <p>This is all your positions</p>
+                    <p>Thank you for using SupFitness</p>
                 </div>
             </div>            
         </div>

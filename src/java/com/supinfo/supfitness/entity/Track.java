@@ -27,7 +27,7 @@ public class Track implements Serializable {
     private Double longitude;
     private Double latitude;
     private Double speed;
-    private Long timestampTrack;
+    private String timestampTrack;
     private Long footRaceId;
     
     public Long getId() {
@@ -62,11 +62,11 @@ public class Track implements Serializable {
         this.speed = speed;
     }
 
-    public Long getTimestamp() {
+    public String getTimestamp() {
         return timestampTrack;
     }
 
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestampTrack = timestamp;
     }
     
