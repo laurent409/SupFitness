@@ -16,11 +16,11 @@
         <ui:include src="/WEB-INF/template_navbar.xhtml" />
         <div class="container">
             <div class="jumbotron">
+                <p>Foot race details</p>
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
                     <div class="panel-heading">#{track.footRaceEntity.name}</div>
                     <div class="panel-body">
-                        <p>Details :</p>
                     </div>
                     <!-- Table -->
                     <h:dataTable value="#{track.trackEntities}" var="trackEntity" class="table">
@@ -47,16 +47,14 @@
                 </div>
                 <div class="thumbnail">
                     <h:form id="form">
-                        <m:map width="500px" latitude="45.7523799" longitude="4.8267278" height="500px" zoom="13" autoReshape="true">
+                        <m:map width="100%" latitude="45.7523799" longitude="4.8267278" height="500px" zoom="13" autoReshape="true">
                             <ui:repeat value="#{track.trackEntities}" var="trackEntity">
                                 <m:marker latitude="#{trackEntity.latitude}" longitude="#{trackEntity.longitude}">
-                                    <m:htmlInformationWindow htmlText="speed: #{trackEntity.speed}km.h - the #{trackEntity.timestamp}" />
+                                    <m:htmlInformationWindow htmlText="#{trackEntity.timestamp} - speed: #{trackEntity.speed}km.h" />
                                 </m:marker>
                             </ui:repeat>
                         </m:map>
                     </h:form>
-                    <br></br>
-                    <p>Thank you for using SupFitness</p>
                 </div>
             </div>            
         </div>
