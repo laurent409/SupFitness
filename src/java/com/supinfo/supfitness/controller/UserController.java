@@ -5,8 +5,8 @@
  */
 package com.supinfo.supfitness.controller;
 
-import com.supinfo.supfitness.dao.UserDao;
 import com.supinfo.supfitness.entity.User;
+import com.supinfo.supfitness.service.UserService;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
@@ -28,7 +28,7 @@ public class UserController implements Serializable{
     }
 
     @EJB
-    UserDao userDao;
+    private UserService userService;
 
     private User user = new User();
     private User userSession;
@@ -77,7 +77,7 @@ public class UserController implements Serializable{
     
     public void signUp() {
         try {
-            userDao.addUser(user);
+            userService.addUser(user);
             ExternalContext Ec = FacesContext.getCurrentInstance().getExternalContext();
             redirectAfter(Ec,"sign-in.xhtml");
         
@@ -87,7 +87,7 @@ public class UserController implements Serializable{
 
     public void signIn() {
         try {
-            User userEntity = userDao.GetUser(user.getUserName(), user.getPassword());
+            User userEntity = userService.getUser(user.getUserName(), user.getPassword());
             ExternalContext Ec = FacesContext.getCurrentInstance().getExternalContext();
             if(userEntity == null)
                 Ec.redirect("sign-out.xhtml");
@@ -101,7 +101,7 @@ public class UserController implements Serializable{
     
     public void updateProfile() {
         try {
-            userDao.updateUser(userSession);
+            userService.updateUser(userSession);
             ExternalContext Ec = FacesContext.getCurrentInstance().getExternalContext();
             redirectAfter(Ec,"manage.xhtml");            
         } catch (Exception e) {

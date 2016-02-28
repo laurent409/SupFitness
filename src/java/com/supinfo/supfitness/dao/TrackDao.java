@@ -16,6 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface TrackDao {
     public void addTrack(Track trackEntity);
+    public void deleteTrack(Track trackEntity);
     public List<Track> getTracksFromFootRace(Long idFootRace);
 
 }

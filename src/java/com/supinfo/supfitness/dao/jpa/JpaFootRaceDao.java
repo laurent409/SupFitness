@@ -32,6 +32,12 @@ public class JpaFootRaceDao implements FootRaceDao{
     public void addFootRace(FootRace footRaceEntity) {
         em.persist(footRaceEntity);
     }
+    
+    @Override
+    public void deleteFootRace(FootRace footRaceEntity) {
+        footRaceEntity = em.merge(footRaceEntity);
+        em.remove(footRaceEntity);
+    }
 
     @Override
     public List<FootRace> getFootRacesFromUser(Long idCreator) {

@@ -34,7 +34,7 @@ public class JpaUserDao implements UserDao{
     }
    
     @Override
-    public User GetUser(String userName, String password) {     
+    public User getUser(String userName, String password) {     
         
         Query query = em.createQuery("SELECT u FROM User u WHERE u.userName= :username AND u.password= :password");
         query.setParameter("username", userName);        

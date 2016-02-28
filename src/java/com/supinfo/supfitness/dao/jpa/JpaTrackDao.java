@@ -33,6 +33,12 @@ public class JpaTrackDao implements TrackDao{
     }
 
     @Override
+    public void deleteTrack(Track trackEntity) {
+        trackEntity = em.merge(trackEntity);
+        em.remove(trackEntity);
+    }
+    
+    @Override
     public List<Track> getTracksFromFootRace(Long idFootRace) {
         //Query query = em.createQuery("SELECT it FROM Item it WHERE it.idCreator = :idCreator");
         //return (List<Item>) query.setParameter("idCreator", idCreator).getResultList();

@@ -16,5 +16,5 @@ import javax.ejb.Local;
 public interface UserDao {
     public void addUser(User userEntity);
     public void updateUser(User userEntity);
-    public User GetUser (String userName, String password);
+    public User getUser (String userName, String password);
 }
