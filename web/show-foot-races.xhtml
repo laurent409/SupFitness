@@ -21,18 +21,28 @@
                         <p>This is all your foot races</p>
                     </div>
                     <!-- Table -->
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td>id</td>
-                                <td>name</td>
-                                <td>speed average</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
+                    <h:dataTable value="#{footRace.footRaceEntities}" var="footRaceEntity" class="table">
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+                            <h:form>
+                                <h:commandLink action="#{footRace.goToDetails(footRaceEntity)}">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </h:commandLink>
+                            </h:form>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">id</f:facet>
+                            #{footRaceEntity.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">name</f:facet>
+                            #{footRaceEntity.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">speed average</f:facet>
+                            #{footRaceEntity.speedAverage} km.h
+                        </h:column>
+                    </h:dataTable>
                 </div>
             </div>            
         </div>
