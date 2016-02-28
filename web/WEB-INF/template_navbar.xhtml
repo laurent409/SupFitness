@@ -17,6 +17,13 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <c:if test="#{UserController.userSession.id ne null}">
+                            <li>
+                            <h:outputLink value="show-foot-races.xhtml"><h:outputText value="Foot Races"/></h:outputLink>
+                            </li>
+                        </c:if>
+                    </ul>
                     <h:form>
                     <ul class="nav navbar-nav navbar-right">
                         <c:if test="#{UserController.userSession.id eq null}">

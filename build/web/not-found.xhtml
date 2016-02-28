@@ -1,12 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <f:metadata>
-        <f:viewAction action="#{UserController.onLoad()}" />
-    </f:metadata>
     <h:head>
         <ui:include src="/WEB-INF/head.xhtml" />
     </h:head>
@@ -14,10 +11,10 @@
         <ui:include src="/WEB-INF/template_navbar.xhtml" />
         <div class="container">
             <div class="jumbotron">
-                <h1>Manage your foot races !</h1>
-                <p>Welcome back #{UserController.userSession.userName} !</p>
-                <p>Here you can manage, monitore and optimize your track races.</p>
-                <p><h:outputLink value="show-foot-races.xhtml" styleClass="btn btn-primary"><h:outputText value="See your foot races !"/></h:outputLink>
+                <h1>What are you doing ?</h1>
+                <p>This page doesn't exist. Maybe it will be feeded later !</p>
+                <p>
+                    <h:outputLink value="index.xhtml" styleClass="btn btn-primary"><h:outputText value="Go back home"/></h:outputLink> 
                 </p>
             </div>            
         </div>

@@ -6,6 +6,7 @@
 package com.supinfo.supfitness.dao;
 
 import com.supinfo.supfitness.entity.Track;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,4 +16,6 @@ import javax.ejb.Local;
 @Local
 public interface TrackDao {
     public void addTrack(Track trackEntity);
+    public List<Track> getTracksFromFootRace(Long idFootRace);
+
 }

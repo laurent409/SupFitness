@@ -6,6 +6,7 @@
 package com.supinfo.supfitness.dao;
 
 import com.supinfo.supfitness.entity.FootRace;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -14,5 +15,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface FootRaceDao {
-    public void addFootRace(FootRace footRaceEntity);   
+    public void addFootRace(FootRace footRaceEntity);
+    public List<FootRace> getFootRacesFromUser(Long idCreator);
 }
