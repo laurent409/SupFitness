@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -60,5 +62,20 @@ public class JpaFootRaceDao implements FootRaceDao{
         } catch (Exception e) {
             return null;
         }    
+    }
+    
+    @Override
+    public FootRace getFootRaceById(Long idFootRace){
+        Query query = em.createQuery("SELECT fr FROM FootRace fr WHERE fr.id= :idFootRace");
+        query.setParameter("idFootRace", idFootRace);
+        
+        try {
+            FootRace footRace = (FootRace) query.getSingleResult();
+            return footRace;
+        } catch (NoResultException exception) {
+            exception.printStackTrace();
+            return null;
+        }
+        
     }
 }

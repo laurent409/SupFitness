@@ -32,4 +32,8 @@ public class FootRaceService {
     public List<FootRace> getFootRacesFromUser(Long idCreator){
         return footRaceDao.getFootRacesFromUser(idCreator);
     }
+    
+    public FootRace getFootRaceById(Long idFootRace){
+        return footRaceDao.getFootRaceById(idFootRace);
+    }
 }

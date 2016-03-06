@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.supinfo.supfitness.ressource.AddRessource.class);
+        resources.add(com.supinfo.supfitness.ressource.DeleteRessource.class);
     }
     
 }

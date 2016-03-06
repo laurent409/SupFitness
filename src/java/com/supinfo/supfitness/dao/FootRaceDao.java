@@ -18,4 +18,5 @@ public interface FootRaceDao {
     public Long addFootRace(FootRace footRaceEntity);
     public void deleteFootRace(FootRace footRaceEntity);
     public List<FootRace> getFootRacesFromUser(Long idCreator);
+    public FootRace getFootRaceById(Long idFootRace);
 }
