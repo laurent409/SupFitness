@@ -15,7 +15,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface FootRaceDao {
-    public void addFootRace(FootRace footRaceEntity);
+    public Long addFootRace(FootRace footRaceEntity);
     public void deleteFootRace(FootRace footRaceEntity);
     public List<FootRace> getFootRacesFromUser(Long idCreator);
 }

@@ -21,8 +21,8 @@ public class FootRaceService {
     @EJB
     private FootRaceDao footRaceDao;
     
-    public void addFootRace(FootRace footRaceEntity){
-        footRaceDao.addFootRace(footRaceEntity);
+    public Long addFootRace(FootRace footRaceEntity){
+        return footRaceDao.addFootRace(footRaceEntity);
     }
     
     public void deleteFootRace(FootRace footRaceEntity){

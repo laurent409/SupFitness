@@ -13,7 +13,9 @@ and open the template in the editor.
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="navbar-brand">
-                        <h:outputLink value="index.xhtml"><h:outputText value="SupFitness"/></h:outputLink>                
+                        <h:outputLink value="index.xhtml"><h:outputText value="SupFitness"/>
+                            <span class="glyphicon glyphicon-apple"></span>
+                        </h:outputLink>                
                     </div>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -31,7 +33,11 @@ and open the template in the editor.
                         <li><h:outputLink value="sign-up.xhtml"><h:outputText value="Sign-up"/></h:outputLink></li>
                         </c:if>
                         <c:if test="#{UserController.userSession.id ne null}">
-                            <li><h:outputLink value="update.xhtml"><h:outputText value="#{UserController.userSession.userName}"/></h:outputLink></li>
+                            <li>
+                                <h:outputLink value="update.xhtml"><h:outputText value="#{UserController.userSession.userName}"/>
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                </h:outputLink>
+                            </li>
                         <li>
                             <h:commandLink value="Logout" action="#{UserController.logOut()}">
                             </h:commandLink>

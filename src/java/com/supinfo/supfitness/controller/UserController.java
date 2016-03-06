@@ -90,7 +90,7 @@ public class UserController implements Serializable{
             User userEntity = userService.getUser(user.getUserName(), user.getPassword());
             ExternalContext Ec = FacesContext.getCurrentInstance().getExternalContext();
             if(userEntity == null)
-                Ec.redirect("sign-out.xhtml");
+                Ec.redirect("sign-in.xhtml");
 
             Ec.getSessionMap().put("userSession", userEntity);
             redirectAfter(Ec,"manage.xhtml");

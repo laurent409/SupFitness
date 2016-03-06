@@ -25,4 +25,15 @@
         <error-code>404</error-code>
         <location>/not-found.xhtml</location>
     </error-page>
+   <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>webresources</web-resource-name>
+            <description/>
+            <url-pattern>/webresources/api/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>DELETE</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>HEAD</http-method>
+        </web-resource-collection>
+   </security-constraint>    
 </web-app>

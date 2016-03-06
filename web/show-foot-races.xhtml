@@ -14,10 +14,16 @@
         <ui:include src="/WEB-INF/template_navbar.xhtml" />
         <div class="container">
             <div class="jumbotron">
-                <p>This is all your foot races</p>
+                <p>
+                    <span class="glyphicon glyphicon-list-alt" ></span> 
+                    This is all your foot races
+                </p>
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">#{UserController.userSession.userName}'s foot races !</div>
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-road"></span>
+                        #{UserController.userSession.userName}'s foot races !
+                    </div>
                     <!-- Table -->
                     <h:dataTable value="#{footRace.footRaceEntities}" var="footRaceEntity" class="table">
                         <h:column>

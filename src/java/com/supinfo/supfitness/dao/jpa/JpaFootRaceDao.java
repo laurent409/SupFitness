@@ -29,8 +29,10 @@ public class JpaFootRaceDao implements FootRaceDao{
     private EntityManager em;
     
     @Override
-    public void addFootRace(FootRace footRaceEntity) {
+    public Long addFootRace(FootRace footRaceEntity) {
         em.persist(footRaceEntity);
+        em.flush();
+        return footRaceEntity.getId();
     }
     
     @Override
