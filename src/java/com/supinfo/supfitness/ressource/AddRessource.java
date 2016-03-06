@@ -20,13 +20,14 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
  
 
 /**
  *
  * @author Laurent
  */
-@Path("/api")
+@Path("/add")
 @Stateless
 public class AddRessource {
     
@@ -40,12 +41,13 @@ public class AddRessource {
     private TrackService trackService;
     
     @POST
-    @Path("/add-foot-race")
+    @Path("/foot-race")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String AddFootRaceTrack(AddResponse ressource) {
+    public Response AddFootRaceTrack(AddResponse ressource) {
         User userEntity = userService.getUser(ressource.getUsername(), ressource.getPassword());
         if ( userEntity == null ) {
-            return "Wrong username of wrong password";
+            return Response.status(401).type("text/plain")
+                    .entity("Authentification: Failure").build();
         } else {
             FootRaceResponse footRaceResponse = ressource.getFootRace();
             
@@ -68,7 +70,8 @@ public class AddRessource {
                 
                 trackService.addTrack(track);
             }
-            return "Success add !";
+            return Response.status(202).type("text/plain")
+                    .entity("Authentification: Success, Add: Success").build();
         }        
     }
 }
