@@ -59,7 +59,6 @@ public class JpaFootRaceDao implements FootRaceDao{
             return (List<FootRace>) em.createQuery(query).getResultList();
         } catch (Exception e) {
             return null;
-        }               
-    
+        }    
     }
 }
