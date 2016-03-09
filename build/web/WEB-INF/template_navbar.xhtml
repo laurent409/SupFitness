@@ -14,7 +14,7 @@ and open the template in the editor.
                 <div class="navbar-header">
                     <div class="navbar-brand">
                         <h:outputLink value="index.xhtml"><h:outputText value="SupFitness"/>
-                            <span class="glyphicon glyphicon-apple"></span>
+                            <span class="glyphicon glyphicon-grain"></span>
                         </h:outputLink>                
                     </div>
                 </div>
@@ -22,7 +22,7 @@ and open the template in the editor.
                     <ul class="nav navbar-nav">
                         <c:if test="#{UserController.userSession.id ne null}">
                             <li>
-                            <h:outputLink value="show-foot-races.xhtml"><h:outputText value="Foot Races"/></h:outputLink>
+                                <h:outputLink value="show-foot-races.xhtml"><h:outputText value="Foot Races"/></h:outputLink>
                             </li>
                         </c:if>
                     </ul>
