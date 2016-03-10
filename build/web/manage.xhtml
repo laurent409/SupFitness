@@ -89,6 +89,55 @@
                     </div>
                 </ui:repeat>
             </div>
+            <div class="jumbotron">
+                <h1>Add a foot race ! 
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                </h1>
+                <p>Send this JSON throught : 
+                    <code>
+                        http://localhost:8080/SupFitness/webresources/add/foot-race
+                    </code>
+                </p>
+                <code>
+                    {<br></br>
+                        "username":"YourUsername",<br></br>
+                        "password":"YourPassword",<br></br>
+                        "footRace": {<br></br>
+                            "name": "NameOfYourRace",<br></br>
+                            "speedAverage": "YourSpeedAverage"<br></br>
+                        },<br></br>
+                        "track": [{<br></br>
+                            "latitude": "First.Latitude",<br></br>
+                            "longitude": "First.Longitude",<br></br>
+                            "speed": "SpeedOfThisTrack",<br></br>
+                            "timestampTrack": "06-03-2016 14:13:46"<br></br>
+                        },<br></br>
+                        {<br></br>
+                            "latitude": "Second.Latitude",<br></br>
+                            "longitude": "Second.Longitude",<br></br>
+                            "speed": "SpeedOfThisOtherTrack",<br></br>
+                            "timestampTrack": "06-03-2016 17:14:25"<br></br>
+                        }]<br></br>
+                    }<br></br>
+                </code>
+            </div>            
+            <div class="jumbotron">
+                <h1>Delete a foot race ! 
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </h1>
+                <p>Send this JSON throught : 
+                    <code>
+                        http://localhost:8080/SupFitness/webresources/delete/foot-race
+                    </code>
+                </p>
+                <code>
+                    {<br></br>
+                        "username":"YourUsername",<br></br>
+                        "password":"YourPassword",<br></br>
+                        "idFootRace": "IdFootRaceToDelete"<br></br>
+                    }<br></br>
+                </code>
+            </div>               
         </div>
     </h:body>
 </html>
